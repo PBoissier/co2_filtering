@@ -1,0 +1,12 @@
+virtualenv --no-site-packages co2_filtering
+cd co2_filtering/
+source bin/activate
+pip install --index-url=https://pypi.python.org/simple/ --upgrade pip
+pip install pandas
+pip install scipy
+pip install statsmodels
+pip install lxml
+pip install mysql
+
+Installer mysql_config pour le paquet mysql :
+apt-get install libmysqlclient-dev

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<co2_filtering>
+
+  <program>
+    <log_file>co2_filtering.log</log_file>
+    <threshold_filtered>10</threshold_filtered>
+  </program>
+
+  <dbms>
+    <host>195.83.188.12</host>
+    <port>3306</port>
+    <database>reunion</database>
+    <user>sysop</user>
+    <password>r0ut1n3</password>
+  </dbms>
+
+  <network name="PF">
+
+    <station name="PCRN" table_name="pcrn" start="2013-08-22 00:00:00">
+      <channel name_in="CO2_3">
+        <out_name>CO2_3</out_name>
+        <process>mean</process>
+      </channel>
+      <channel name_in="AirTemp_3">
+        <out_name>TM</out_name>
+        <process>mean</process>
+      </channel>
+      <channel name_in="Rain">
+        <out_name>RR</out_name>
+        <process>sum</process>
+      </channel>
+      <channel name_in="CO2_0"/>
+      <channel name_in="Patm_3"/>
+      <channel name_in="WindSpeed"/>
+      <filters>
+        <air_pressure_filter>
+          <pressure_min>838</pressure_min>
+          <pressure_max>860</pressure_max>
+          <pressure_index>5</pressure_index>
+        </air_pressure_filter>
+        <co2_0_filter>
+          <co2_0_min>0</co2_0_min>
+          <co2_0_max>0.1</co2_0_max>
+          <co2_0_index>4</co2_0_index>
+        </co2_0_filter>
+      </filters>
+    </station>
+    
+    <station name="PNRN" table_name="pnrn" start="2014-10-09 00:00:00">
+      <channel name_in="CO2_3">
+        <out_name>CO2_3</out_name>
+        <process>mean</process>
+      </channel>
+      <channel name_in="AirTemp_3">
+        <out_name>TM</out_name>
+        <process>mean</process>
+      </channel>
+      <channel name_in="Rain">
+        <out_name>RR</out_name>
+        <process>sum</process>
+      </channel>
+      <channel name_in="CO2_0"/>
+      <channel name_in="Patm_3"/>
+      <channel name_in="WindSpeed">
+        <out_name>V</out_name>
+        <process>mean</process>
+      </channel>
+      <filters>
+        <air_pressure_filter>
+          <pressure_min>885</pressure_min>
+          <pressure_max>915</pressure_max>
+          <pressure_index>5</pressure_index>
+        </air_pressure_filter>
+        <co2_0_filter>
+          <co2_0_min>0.02</co2_0_min>
+          <co2_0_max>0.04</co2_0_max>
+          <co2_0_index>4</co2_0_index>
+        </co2_0_filter>
+      </filters>
+    </station>
+
+    <station name="BLEN" table_name="blen" start="2016-11-04 00:00:00">
+      <channel name_in="CO2_3">
+        <out_name>CO2_3</out_name>
+        <process>mean</process>
+      </channel>
+      <channel name_in="Tcase_3">
+        <out_name>TM</out_name>
+        <process>mean</process>
+      </channel>
+      <channel name_in="Rain"/>
+      <channel name_in="CO2_0"/>
+      <channel name_in="Patm_3"/>
+      <channel name_in="WindSpeed">
+        <out_name>Windspeed</out_name>
+        <process>mean</process>
+      </channel>
+      <filters>
+        <air_pressure_filter>
+          <pressure_min>830</pressure_min>
+          <pressure_max>850</pressure_max>
+          <pressure_index>5</pressure_index>
+        </air_pressure_filter>
+        <co2_0_filter>
+          <co2_0_min>0</co2_0_min>
+          <co2_0_max>0.1</co2_0_max>
+          <co2_0_index>4</co2_0_index>
+        </co2_0_filter>
+      </filters>
+    </station>
+  </network>
+</co2_filtering>
